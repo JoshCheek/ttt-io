@@ -1,4 +1,7 @@
-Board := Object clone do(
-  string := "000000000"
-  asString := method(string)
+Board := Object clone do(  
+  init := method(
+    self string   := "000000000"
+    self asString := method(string)
+    self isOver   := method(false)
+  )
 )
