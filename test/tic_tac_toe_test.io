@@ -38,4 +38,13 @@ describe("TicTacToe") do(
     ttt isTie will == false
     ttt winner will == 1
   ))
+  
+  it("alternates turns between player 1 and 2", block(
+    ttt := TicTacToe clone
+    ttt turn will == 1
+    ttt move(1)
+    ttt turn will == 2
+    ttt move(2)
+    ttt turn will == 1
+  ))
 )
