@@ -47,4 +47,11 @@ describe("TicTacToe") do(
     ttt move(2)
     ttt turn will == 1
   ))
+  
+  it("marks its moves on the board", block(
+    ttt := TicTacToe clone
+    ttt move(1)
+    ttt move(2)
+    ttt board asString will == "120000000"
+  ))
 )
