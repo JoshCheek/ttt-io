@@ -11,4 +11,9 @@ describe("Board") do(
     board := Board clone
     board isOver will == false
   ))
+  
+  it("knows when it is not a tie" do(
+    board := Board clone
+    board isTie will == false
+  ))
 )
