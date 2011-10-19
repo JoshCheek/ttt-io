@@ -9,9 +9,7 @@ TicTacToe := Object clone do(
   isOver := method(board isOver)
   
   isTie := method(board isTie)
-  
-  board := method(_board)
-  
+    
   move := method(position,
     board mark(position, turn)
     self turn = if(turn == 1, 2, 1)
