@@ -55,4 +55,15 @@ describe("TicTacToe") do(
     ttt move(9)
     ttt board wasMarked(9, 1) will == true
   ))
+  
+  it("knows when it is over", block(
+    board := MockBoard clone
+    newGame := TicTacToe clone setBoard(board)
+    board wasAskedIfIsOver will == false
+    newGame isOver will == false
+    board wasAskedIfIsOver will == true
+    
+    finishedGame := TicTacToe clone setBoard(MockBoard clone setIsOver(true))
+    finishedGame isOver will == true
+  ))
 )

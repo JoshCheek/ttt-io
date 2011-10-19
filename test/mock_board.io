@@ -1,6 +1,18 @@
 MockBoard := Object clone do(
   init := method(
-    self marks := list()
+    self marks            := list()
+    self wasAskedIfIsOver := false
+    self _isOver          := false
+  )
+  
+  setIsOver := method(newIsOver,
+    _isOver = newIsOver
+    self
+  )
+  
+  isOver := method(
+    wasAskedIfIsOver = true
+    _isOver
   )
   
   mark := method(position, playerNumber,
