@@ -66,4 +66,15 @@ describe("TicTacToe") do(
     finishedGame := TicTacToe clone setBoard(MockBoard clone setIsOver(true))
     finishedGame isOver will == true
   ))
+  
+  it("knows when it is tied", block(
+    board := MockBoard clone
+    newGame := TicTacToe clone setBoard(board)
+    board wasAskedIfIsTie will == false
+    newGame isTie will == false
+    board wasAskedIfIsTie will == true
+    
+    finishedGame := TicTacToe clone setBoard(MockBoard clone setIsTie(true))
+    finishedGame isTie will == true
+  ))
 )

@@ -2,9 +2,21 @@ MockBoard := Object clone do(
   init := method(
     self marks            := list()
     self wasAskedIfIsOver := false
+    self wasAskedIfIsTie  := false
     self _isOver          := false
+    self _isTie           := false
+  )
+
+  setIsTie := method(newIsTie,
+    _isTie = newIsTie
+    self
   )
   
+  isTie := method(
+    wasAskedIfIsTie = true
+    _isTie
+  )
+    
   setIsOver := method(newIsOver,
     _isOver = newIsOver
     self
