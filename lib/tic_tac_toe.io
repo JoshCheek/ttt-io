@@ -2,15 +2,17 @@ doFile("lib/tic_tac_toe/board.io")
 
 TicTacToe := Object clone do(
   init := method(
-    self _board  := nil
+    self _board := nil
     self turn   := 1
   )
   
   isOver := method(board isOver)
   
-  isTie  := method(board isTie)
+  isTie := method(board isTie)
   
-  move   := method(position,
+  board := method(_board)
+  
+  move := method(position,
     board mark(position, turn)
     self turn = if(turn == 1, 2, 1)
   )
@@ -18,5 +20,10 @@ TicTacToe := Object clone do(
   board := method(
     if(_board isNil, _board = Board clone)
     _board
+  )
+  
+  setBoard := method(new_board,
+    _board = new_board
+    self
   )
 )
