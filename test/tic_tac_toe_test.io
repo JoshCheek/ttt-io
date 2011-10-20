@@ -41,7 +41,7 @@ describe("TicTacToe") do(
   ))
   
   it("alternates turns between player 1 and 2", block(
-    ttt := TicTacToe clone withBoard(MockBoard clone)
+    ttt := TicTacToe forBoard(MockBoard clone)
     ttt turn will == 1
     ttt move(1)
     ttt turn will == 2
@@ -50,7 +50,7 @@ describe("TicTacToe") do(
   ))
   
   it("marks its moves on the board", block(
-    ttt := TicTacToe clone withBoard(MockBoard clone)
+    ttt := TicTacToe forBoard(MockBoard clone)
     ttt board wasMarked(9, 1) will == false
     ttt move(9)
     ttt board wasMarked(9, 1) will == true

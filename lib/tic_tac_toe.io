@@ -25,15 +25,17 @@ TicTacToe := Object clone do(
   )
     
   boardAnalyzer := method(
-    _boardAnalyzer ifNil(_boardAnalyzer = BoardAnalyzer clone withBoard(board))
+    _boardAnalyzer ifNil(_boardAnalyzer = BoardAnalyzer forBoard(board))
     _boardAnalyzer
   )
   
   
-  withBoard := method(new_board,
-    _board = new_board
+  withBoard := method(newBoard,
+    _board = newBoard
     self
   )
+  
+  forBoard := method(newBoard, TicTacToe clone withBoard(newBoard))
   
   withBoardAnalyzer := method(newBoardAnalyzer,
     _boardAnalyzer = newBoardAnalyzer
