@@ -57,7 +57,7 @@ describe("TicTacToe") do(
   ))
   
   it("knows when it is tied", block(
-    nilWinner := MockBoardAnalyzer clone setWinner(nil)
+    nilWinner := MockBoardAnalyzer clone withWinner(nil)
     newGame   := TicTacToe clone withBoardAnalyzer(nilWinner)
     newGame isTie will == false
     
@@ -66,7 +66,7 @@ describe("TicTacToe") do(
   ))
   
   it("knows it's over when there is a winner", block(
-    findsWinner := MockBoardAnalyzer clone setWinner(1)
+    findsWinner := MockBoardAnalyzer clone withWinner(1)
     board       := Board clone fromString("111220000")
     findsWinner wasAskedForWinnerFrom("111220000") will == false
     ticTacToe   := TicTacToe clone withBoard(board) withBoardAnalyzer(findsWinner)
@@ -75,14 +75,14 @@ describe("TicTacToe") do(
   ))
 
   it("knows it's over when there is a tie", block(
-    mockBoardAnalyzer := MockBoardAnalyzer clone setWinner(nil)
+    mockBoardAnalyzer := MockBoardAnalyzer clone withWinner(nil)
     board             := Board clone fromString("112221112")
     ticTacToe         := TicTacToe clone withBoard(board) withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == true
   ))
   
   it("knows it's not over when there is no tie and no winner", block(
-    mockBoardAnalyzer := MockBoardAnalyzer clone withTie(false) setWinner(nil)
+    mockBoardAnalyzer := MockBoardAnalyzer clone withTie(false) withWinner(nil)
     ticTacToe         := TicTacToe clone withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == false
   ))

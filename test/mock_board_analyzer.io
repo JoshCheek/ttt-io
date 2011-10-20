@@ -9,7 +9,7 @@ MockBoardAnalyzer := Object clone do(
     stringBoard == board asString
   )
   
-  setWinner := method(newWinner, _winner = newWinner; self)
+  withWinner := method(newWinner, _winner = newWinner; self)
   
   winnerFor := method(board, 
     self board = board
