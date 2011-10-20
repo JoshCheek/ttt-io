@@ -27,4 +27,9 @@ describe("Board") do(
     board playerAt(8) will == 1
     board playerAt(9) will == nil
   ))
+  
+  it("knows what positions are available", block(
+    board := Board forString("100212012")
+    board availablePositions will == list(2, 3, 7)
+  ))
 )

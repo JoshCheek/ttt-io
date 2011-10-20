@@ -18,7 +18,9 @@ Board := Object clone do(
   
   availablePositions := method(
     toReturn := list()
-    _primative foreach(index, element, if(element == 0, toReturn append(index)))
+    _primative foreach(privateIndex, element,
+      if(element == 0, toReturn append(toPublicIndex(privateIndex)))
+    )
     toReturn
   )
   
@@ -27,7 +29,8 @@ Board := Object clone do(
     if(player == 0, nil, player)
   )
   
-  toPrivateIndex := method(publicIndex, publicIndex-1)
+  toPrivateIndex := method(publicIndex,  publicIndex-1)
+  toPublicIndex  := method(privateIndex, privateIndex+1)
   
   init := method(
     self _primative := nil
