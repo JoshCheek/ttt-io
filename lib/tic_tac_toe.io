@@ -1,4 +1,5 @@
 doFile("lib/tic_tac_toe/board.io")
+doFile("lib/tic_tac_toe/board_analyzer.io")
 
 TicTacToe := Object clone do(
   init := method(
