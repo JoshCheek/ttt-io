@@ -8,29 +8,11 @@ Board := Object clone do(
   )
   
   markerFor := method(playerNumber, playerNumber)
-  
-  isOver := method(isTie or winner)
-  
-  winner := method(
-    boardAnalyzer winnerFor(self) 
-  )
-  
-  boardAnalyzer := method(
-    _boardAnalyzer ifNil(_boardAnalyzer = BoardAnalyzer clone)
-    _boardAnalyzer
-  )
-  
-  withBoardAnalyzer := method(newBoardAnalyzer,
-    _boardAnalyzer = newBoardAnalyzer
-    self
-  )
-  
+      
   fromString := method(newString,
     _primative = newString asList map(element, element asNumber)
     self
   )
-  
-  isTie := method(availablePositions isEmpty)
   
   availablePositions := method(
     toReturn := list()
@@ -47,7 +29,6 @@ Board := Object clone do(
   
   init := method(
     self _primative     := nil
-    self _boardAnalyzer := nil
     fromString("000000000")
   )
 )
