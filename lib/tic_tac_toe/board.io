@@ -38,6 +38,13 @@ Board := Object clone do(
     toReturn
   )
   
+  playerAt := method(publicIndex,
+    player := _primative at(toPrivateIndex(publicIndex))
+    if(player == 0, nil, player)
+  )
+  
+  toPrivateIndex := method(publicIndex, publicIndex-1)
+  
   init := method(
     self _primative     := nil
     self _boardAnalyzer := nil

@@ -42,5 +42,18 @@ describe("Board") do(
     board mark(9, 1)
     board mark(8, 2)
     board asString will == "000000021"
-  ))  
+  ))
+  
+  it("knows who is at a given position", block(
+    board := Board clone fromString("120000210")
+    board playerAt(1) will == 1
+    board playerAt(2) will == 2
+    board playerAt(3) will == nil
+    board playerAt(4) will == nil
+    board playerAt(5) will == nil
+    board playerAt(6) will == nil
+    board playerAt(7) will == 2
+    board playerAt(8) will == 1
+    board playerAt(9) will == nil
+  ))
 )
