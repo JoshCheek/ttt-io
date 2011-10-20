@@ -16,7 +16,7 @@ TicTacToe := Object clone do(
   )
   
   board := method(
-    if(_board isNil, _board = Board clone)
+    _board ifNil(_board = Board clone)
     _board
   )
   
