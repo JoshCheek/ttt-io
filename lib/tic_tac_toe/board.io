@@ -8,11 +8,13 @@ Board := Object clone do(
   )
   
   markerFor := method(playerNumber, playerNumber)
-      
-  fromString := method(newString,
+  
+  withString := method(newString,
     _primative = newString asList map(element, element asNumber)
     self
   )
+  
+  forString := method(newString, Board clone withString(newString))
   
   availablePositions := method(
     toReturn := list()
@@ -28,7 +30,7 @@ Board := Object clone do(
   toPrivateIndex := method(publicIndex, publicIndex-1)
   
   init := method(
-    self _primative     := nil
-    fromString("000000000")
+    self _primative := nil
+    withString("000000000")
   )
 )

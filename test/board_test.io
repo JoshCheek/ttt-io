@@ -16,7 +16,7 @@ describe("Board") do(
   ))
   
   it("knows who is at a given position", block(
-    board := Board clone fromString("120000210")
+    board := Board forString("120000210")
     board playerAt(1) will == 1
     board playerAt(2) will == 2
     board playerAt(3) will == nil
