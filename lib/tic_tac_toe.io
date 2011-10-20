@@ -9,11 +9,9 @@ TicTacToe := Object clone do(
   
   isOver := method(isTie or winner)
   
-  isTie := method(board availablePositions isEmpty)
+  isTie := method(boardAnalyzer isTie)
   
-  winner := method(
-    boardAnalyzer winnerFor(board) 
-  )
+  winner := method(boardAnalyzer winner)
     
   move := method(position,
     board mark(position, turn)
@@ -25,20 +23,20 @@ TicTacToe := Object clone do(
     _board ifNil(_board = Board clone)
     _board
   )
+    
+  boardAnalyzer := method(
+    _boardAnalyzer ifNil(_boardAnalyzer = BoardAnalyzer clone withBoard(board))
+    _boardAnalyzer
+  )
+  
   
   withBoard := method(new_board,
     _board = new_board
     self
   )
   
-  boardAnalyzer := method(
-    _boardAnalyzer ifNil(_boardAnalyzer = BoardAnalyzer clone)
-    _boardAnalyzer
-  )
-  
   withBoardAnalyzer := method(newBoardAnalyzer,
     _boardAnalyzer = newBoardAnalyzer
     self
   )
-  
 )

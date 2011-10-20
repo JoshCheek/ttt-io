@@ -56,28 +56,15 @@ describe("TicTacToe") do(
     ttt board wasMarked(9, 1) will == true
   ))
   
-  it("knows when it is tied", block(
-    nilWinner := MockBoardAnalyzer clone withWinner(nil)
-    newGame   := TicTacToe clone withBoardAnalyzer(nilWinner)
-    newGame isTie will == false
-    
-    finishedGame := TicTacToe clone withBoard(Board clone fromString("112221121")) withBoardAnalyzer(nilWinner)
-    finishedGame isTie will == true
-  ))
-  
   it("knows it's over when there is a winner", block(
     findsWinner := MockBoardAnalyzer clone withWinner(1)
-    board       := Board clone fromString("111220000")
-    findsWinner wasAskedForWinnerFrom("111220000") will == false
-    ticTacToe   := TicTacToe clone withBoard(board) withBoardAnalyzer(findsWinner)
+    ticTacToe   := TicTacToe clone withBoardAnalyzer(findsWinner)
     ticTacToe isOver will == true
-    findsWinner wasAskedForWinnerFrom("111220000") will == true
   ))
 
   it("knows it's over when there is a tie", block(
-    mockBoardAnalyzer := MockBoardAnalyzer clone withWinner(nil)
-    board             := Board clone fromString("112221112")
-    ticTacToe         := TicTacToe clone withBoard(board) withBoardAnalyzer(mockBoardAnalyzer)
+    mockBoardAnalyzer := MockBoardAnalyzer clone withWinner(nil) withTie(true)
+    ticTacToe         := TicTacToe clone withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == true
   ))
   
