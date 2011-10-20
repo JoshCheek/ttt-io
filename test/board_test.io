@@ -29,6 +29,14 @@ describe("Board") do(
     Board clone fromString("112221112") isTie will == true
   ))
   
+  it("finds out who won from the board analyzer", block(
+    mockBoardAnalyzer := MockBoardAnalyzer clone setWinner(1)
+    board := Board clone withBoardAnalyzer(mockBoardAnalyzer)
+    board winner will == 1
+    mockBoardAnalyzer setWinner(2)
+    board winner will == 2
+  ))
+  
   it("marks moves on the board", block(
     board := Board clone
     board mark(9, 1)
