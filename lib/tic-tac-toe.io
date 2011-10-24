@@ -1,5 +1,6 @@
 doRelativeFile("tic-tac-toe/board.io")
 doRelativeFile("tic-tac-toe/board-analyzer.io")
+doRelativeFile("cli/driver.io")
 
 TicTacToe := Object clone do(
   init := method(

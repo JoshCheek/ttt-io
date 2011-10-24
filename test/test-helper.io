@@ -5,5 +5,7 @@ doRelativeFile("../lib/tic-tac-toe.io")
 doFile(System ioPath .. "/willful.io")
 
 # mocks
-doRelativeFile("../test/mock-board.io")
-doRelativeFile("../test/mock-board-analyzer.io")
+doRelativeFile("mock-board.io")
+doRelativeFile("mock-board-analyzer.io")
+doRelativeFile("cli/mock-input.io")
+doRelativeFile("cli/mock-output.io")
