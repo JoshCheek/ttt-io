@@ -1,5 +1,5 @@
-doRelativeFile("test_helper.io")
-doFile("lib/tic_tac_toe.io")
+doRelativeFile("test-helper.io")
+doFile("lib/tic-tac-toe.io")
 
 describe("BoardAnalyzer",
   it("has a factory to create instances for a given board",
