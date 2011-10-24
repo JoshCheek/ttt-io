@@ -30,4 +30,19 @@ describe("Board",
     board := Board forString("100212012")
     board availablePositions will == list(2, 3, 7)
   )
+  
+  it("can represent itself in human readable form",
+    board := Board forString("120000012")
+    board humanReadable will == ("   |   |   \n" ..
+                                " X | O |   \n" ..
+                                "   |   |   \n" ..
+                                "-----------\n" ..
+                                "   |   |   \n" ..
+                                "   |   |   \n" ..
+                                "   |   |   \n" ..
+                                "-----------\n" ..
+                                "   |   |   \n" ..
+                                "   | X | O \n" ..
+                                "   |   |   \n")
+  )
 )

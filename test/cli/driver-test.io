@@ -1,6 +1,11 @@
 doRelativeFile("../test-helper.io")
 
 describe("Cli Driver",
+  it("is initialized with an empty board",
+    driver := Cli Driver clone
+    driver board asString will == "000000000"
+  )
+  
   it("knows its board",
     driver := Cli Driver clone withBoard("121000000") withInput(MockInput clone) withOutput(MockOutput)
     driver board asString will == "121000000"

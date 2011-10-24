@@ -1,4 +1,5 @@
 #!/usr/bin/env io
-doRelativeFile("../lib/cli.io")
+doRelativeFile("../lib/tic-tac-toe.io")
 
-Cli Driver drive
+driver := Cli Driver clone
+driver drive

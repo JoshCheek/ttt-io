@@ -1,5 +1,10 @@
 Board := Object clone do(
-  
+
+  init := method(
+    self _primative := nil
+    withString("000000000")
+  )
+    
   asString := method(_primative join)
   
   mark := method(position, playerNumber, 
@@ -32,8 +37,25 @@ Board := Object clone do(
   toPrivateIndex := method(publicIndex,  publicIndex-1)
   toPublicIndex  := method(privateIndex, privateIndex+1)
   
-  init := method(
-    self _primative := nil
-    withString("000000000")
+  humanReadable := method(board,
+    ("   |   |   \n" ..
+    " " .. (markerAt(0)) .. " | " .. (markerAt(1)) .. " | " .. (markerAt(2)) .. " \n" ..
+    "   |   |   \n" ..
+    "-----------\n" ..
+    "   |   |   \n" ..
+    " " .. (markerAt(3)) .. " | " .. (markerAt(4)) .. " | " .. (markerAt(5)) .. " \n" ..
+    "   |   |   \n" ..
+    "-----------\n" ..
+    "   |   |   \n" ..
+    " " .. (markerAt(6)) .. " | " .. (markerAt(7)) .. " | " .. (markerAt(8)) .. " \n" ..
+    "   |   |   \n")
+  )
+  
+  markerAt := method(privateIndex,
+    playerNumberToMarker(_primative at(privateIndex))
+  )
+  
+  playerNumberToMarker := method(playerNumber,
+    if(playerNumber == 1) then(return "X") elseif(playerNumber == 2) then(return "O") else(return " ")
   )
 )
