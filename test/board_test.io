@@ -2,20 +2,20 @@ doRelativeFile("test_helper.io")
 doFile("lib/tic_tac_toe.io")
 doFile("test/mock_board_analyzer.io")
 
-describe("Board") do(
-	it("is initially empty", block(
+describe("Board",
+	it("is initially empty",
 	  board := Board clone
 	  board asString will == "000000000"
-  ))
+  )
   
-  it("marks moves on the board", block(
+  it("marks moves on the board",
     board := Board clone
     board mark(9, 1)
     board mark(8, 2)
     board asString will == "000000021"
-  ))
+  )
   
-  it("knows who is at a given position", block(
+  it("knows who is at a given position",
     board := Board forString("120000210")
     board playerAt(1) will == 1
     board playerAt(2) will == 2
@@ -26,10 +26,10 @@ describe("Board") do(
     board playerAt(7) will == 2
     board playerAt(8) will == 1
     board playerAt(9) will == nil
-  ))
+  )
   
-  it("knows what positions are available", block(
+  it("knows what positions are available",
     board := Board forString("100212012")
     board availablePositions will == list(2, 3, 7)
-  ))
+  )
 )

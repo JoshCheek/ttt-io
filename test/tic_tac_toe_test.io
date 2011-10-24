@@ -2,8 +2,8 @@ doRelativeFile("test_helper.io")
 doFile("lib/tic_tac_toe.io")
 doFile("test/mock_board.io")
 
-describe("TicTacToe") do(
-  it("Will be used like this", block(
+describe("TicTacToe",
+  it("Will be used like this",
     # initial conditions
     ttt := TicTacToe clone
     ttt board asString will == "000000000"
@@ -38,39 +38,39 @@ describe("TicTacToe") do(
     ttt isOver will == true
     ttt isTie will == false
     ttt winner will == 1
-  ))
+  )
   
-  it("alternates turns between player 1 and 2", block(
+  it("alternates turns between player 1 and 2",
     ttt := TicTacToe forBoard(MockBoard clone)
     ttt turn will == 1
     ttt move(1)
     ttt turn will == 2
     ttt move(2)
     ttt turn will == 1
-  ))
+  )
   
-  it("marks its moves on the board", block(
+  it("marks its moves on the board",
     ttt := TicTacToe forBoard(MockBoard clone)
     ttt board wasMarked(9, 1) will == false
     ttt move(9)
     ttt board wasMarked(9, 1) will == true
-  ))
+  )
   
-  it("knows it's over when there is a winner", block(
+  it("knows it's over when there is a winner",
     findsWinner := MockBoardAnalyzer clone withWinner(1)
     ticTacToe   := TicTacToe clone withBoardAnalyzer(findsWinner)
     ticTacToe isOver will == true
-  ))
+  )
 
-  it("knows it's over when there is a tie", block(
+  it("knows it's over when there is a tie",
     mockBoardAnalyzer := MockBoardAnalyzer clone withWinner(nil) withTie(true)
     ticTacToe         := TicTacToe clone withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == true
-  ))
+  )
   
-  it("knows it's not over when there is no tie and no winner", block(
+  it("knows it's not over when there is no tie and no winner",
     mockBoardAnalyzer := MockBoardAnalyzer clone withTie(false) withWinner(nil)
     ticTacToe         := TicTacToe clone withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == false
-  ))
+  )
 )
