@@ -1,6 +1,4 @@
 doRelativeFile("test-helper.io")
-doFile("lib/tic-tac-toe.io")
-doFile("test/mock-board.io")
 
 describe("TicTacToe",
   it("Will be used like this",

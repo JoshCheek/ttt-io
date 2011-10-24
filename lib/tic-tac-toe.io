@@ -1,5 +1,5 @@
-doFile("lib/tic-tac-toe/board.io")
-doFile("lib/tic-tac-toe/board-analyzer.io")
+doRelativeFile("tic-tac-toe/board.io")
+doRelativeFile("tic-tac-toe/board-analyzer.io")
 
 TicTacToe := Object clone do(
   init := method(

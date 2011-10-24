@@ -1,6 +1,4 @@
 doRelativeFile("test-helper.io")
-doFile("lib/tic-tac-toe.io")
-doFile("test/mock-board-analyzer.io")
 
 describe("Board",
 	it("is initially empty",
