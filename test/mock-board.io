@@ -1,10 +1,11 @@
 MockBoard := Object clone do(
   init := method(
-    self marks            := list()
-    self wasAskedIfIsOver := false
-    self wasAskedIfIsTie  := false
-    self _isOver          := false
-    self _isTie           := false
+    self marks                    := list()
+    self wasAskedIfIsOver         := false
+    self wasAskedIfIsTie          := false
+    self wasAskedForHumanReadable := false
+    self _isOver                  := false
+    self _isTie                   := false
   )
 
   setIsTie := method(newIsTie,
@@ -39,5 +40,14 @@ MockBoard := Object clone do(
     marks detect(mark,
       mark position == position and mark playerNumber == playerNumber
     ) not not
+  )
+  
+  humanReadable := method(
+    wasAskedForHumanReadable = true
+    "!!BOARD!!"
+  )
+  
+  playerNumberToMarker := method(
+    "X"
   )
 )

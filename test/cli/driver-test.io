@@ -3,22 +3,24 @@ doRelativeFile("../test-helper.io")
 describe("Cli Driver",
   it("is initialized with an empty board",
     driver := Cli Driver clone
-    driver board asString will == "000000000"
+    driver board isEmpty will == true
   )
   
   it("knows its board",
-    driver := Cli Driver clone withBoard("121000000") withInput(MockInput clone) withOutput(MockOutput)
-    driver board asString will == "121000000"
+    board := MockBoard clone
+    driver := Cli Driver clone withBoard(board)
+    driver board will == board
   )
   
-  it("prompts the player for every move until the game is over",
-    input  := MockInput withLines(list(1, 2, 5, 9, 4, 6, 7, 3, 8))
-    output := MockOutput clone
-    driver := Cli Driver clone withBoard("000000000") withInput(input) withOutput(output)
-    driver input will == input
-    driver output will == output
-    driver drive
-    output numberOfTimesWasAskedForMove will == 7
-    output wasAskedToShowResultsWith("120112102", 1) will == true
+  it("prompts alternating players for every move until the game is over",
+    output  := MockOutput clone
+    player1 := MockPlayer withMoves(list(1, 4, 7))
+    player2 := MockPlayer withMoves(list(2, 5))
+    driver := Cli Driver clone withPlayer1(player1) withPlayer2(player2) withOutput(output)
+    driver currentPlayer will == player1
+    driver takeTurn
+    driver currentPlayer will == player2
+    driver takeTurn
+    driver currentPlayer will == player1
   )
 )
