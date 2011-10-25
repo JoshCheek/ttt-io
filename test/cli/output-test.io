@@ -9,7 +9,7 @@ TestHelper linesFromOutput := method(
   lines
 )
 
-describe("Cli Input",
+describe("Cli Output",
   
   it("askForMoveOn writes to output and has a question mark",
     lines := TestHelper linesFromOutput(block(file,
