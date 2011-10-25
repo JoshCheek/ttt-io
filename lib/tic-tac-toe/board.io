@@ -58,4 +58,8 @@ Board := Object clone do(
   playerNumberToMarker := method(playerNumber,
     if(playerNumber == 1) then(return "X") elseif(playerNumber == 2) then(return "O") else(return " ")
   )
+  
+  isEmpty := method(
+    availablePositions isEmpty
+  )
 )

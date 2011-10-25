@@ -3,7 +3,7 @@ doRelativeFile("test-helper.io")
 describe("Board",
 	it("is initially empty",
 	  board := Board clone
-	  board asString will == "000000000"
+	  board isEmpty will == true
   )
   
   it("marks moves on the board",
