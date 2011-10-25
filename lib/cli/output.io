@@ -4,11 +4,17 @@ Cli Output := Object clone do(
   init := method(
     self stream := File standardOutput
   )
+  
+  withStream := method(newStream,
+    output := Cli Output clone
+    output stream = newStream
+    output
+  )
 
   askForMoveOn := method(board, turn,
     player := board playerNumberToMarker(turn)
     stream write(board humanReadable)
-    stream write("Where would you like to move, " .. (player asString) .. "?")
+    stream write("Where would you like to move, " .. (player asString) .. "? ")
     self
   )
 
