@@ -6,8 +6,8 @@ Cli Driver := Object clone do(
     self game         := TicTacToe forBoard(board)
     self input        := Cli Input clone
     self output       := Cli Output clone
-    self player1      := nil
-    self player2      := nil
+    self player1      := Cli HumanPlayer clone
+    self player2      := Cli HumanPlayer clone
   )
   
   withPlayer1 := method(_player1, player1 = _player1; self)
@@ -33,7 +33,7 @@ Cli Driver := Object clone do(
   )
   
   takeTurn := method(
-    game move(currentPlayer getMove(input, output))
+    game move(currentPlayer getMove(game, input, output))
     self
   )
   

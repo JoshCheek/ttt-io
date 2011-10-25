@@ -3,12 +3,13 @@ doRelativeFile("tic-tac-toe/board-analyzer.io")
 doRelativeFile("cli/driver.io")
 doRelativeFile("cli/input.io")
 doRelativeFile("cli/output.io")
+doRelativeFile("cli/human-player.io")
 
 TicTacToe := Object clone do(
   init := method(
-    self _board := nil
+    self _board         := nil
     self _boardAnalyzer := nil
-    self turn   := 1
+    self turn           := 1
   )
   
   isOver := method(isTie or winner)
