@@ -31,4 +31,8 @@ Cli Output := Object clone do(
   goFirstOrSecond := method(
     stream write("Do you want to go first or second? ")
   )
+  
+  alertInvalid := method(
+    stream write("That is not a valid input.\n")
+  )
 )

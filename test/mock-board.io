@@ -6,6 +6,7 @@ MockBoard := Object clone do(
     self wasAskedForHumanReadable := false
     self _isOver                  := false
     self _isTie                   := false
+    self positions                := list(1)
   )
 
   setIsTie := method(newIsTie,
@@ -51,5 +52,7 @@ MockBoard := Object clone do(
     "X"
   )
   
-  availablePositions := method(list(1)) # may need to be overridden to be smarter depending on tests later
+  setAvailablePositions := method(newPositions, positions = newPositions; self)
+  
+  availablePositions := method(positions)
 )

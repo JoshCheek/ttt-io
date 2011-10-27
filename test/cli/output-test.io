@@ -62,6 +62,14 @@ describe("Cli Output",
     ))
     lines select(containsSeq("first")) isEmpty will == false
     lines select(containsSeq("second")) isEmpty will == false
-  )  
+  )
+  
+  it("alertInvalid informs the user their input was not valid",
+    lines := TestHelper linesFromOutput(block(file,
+      output := Cli Output withStream(file)
+      output alertInvalid
+    ))
+    lines select(containsSeq("valid")) isEmpty will == false
+  )
 )
 

@@ -2,6 +2,7 @@ MockOutput := Object clone do(
   init := method(
     self numberOfTimesWasAskedForMove       := 0
     self numberOfTimesWasAskedToShowResults := 0
+    self numberOfTimesAlertedInvalid        := 0
     self promptedToGoFirstOrSecond          := false
     self askedToShowResults                 := false
     self boardToShow                        := nil
@@ -29,4 +30,8 @@ MockOutput := Object clone do(
     promptedToGoFirstOrSecond = true
     self
   )  
+  
+  alertInvalid := method(
+    numberOfTimesAlertedInvalid = numberOfTimesAlertedInvalid + 1
+  )
 )
