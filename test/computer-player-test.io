@@ -97,5 +97,17 @@ describe("ComputerPlayer",
     game := TestHelper gameFromString("102000000")
     move := ComputerPlayer getMove(game)
     list(4, 7, 9) contains(move) will == true
-  )  
+  )
+  
+  
+  it("makes move with highest probability of win in future",
+    game := TestHelper gameFromString("100020000")
+    move := ComputerPlayer getMove(game)
+    list(2, 5) contains(move) will == true
+  )
+  
+  it("makes move with lowest probability of losing in future",
+    game := TestHelper gameFromString("100000000")
+    ComputerPlayer getMove(game) will == 5
+  )
 )
