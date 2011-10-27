@@ -6,6 +6,16 @@ describe("Board",
 	  board isEmpty will == true
   )
   
+  it("knows when it is empty",
+    Board forString("000000000") isEmpty will == true
+    Board forString("100000000") isEmpty will == false
+  )
+  
+  it("knows when it is full",
+    Board forString("112221120") isFull will == false
+    Board forString("112221121") isFull will == true
+  )
+  
   it("marks moves on the board",
     board := Board clone
     board mark(9, 1)

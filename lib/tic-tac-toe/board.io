@@ -74,4 +74,8 @@ Board := Object clone do(
   isEmpty := method(
     availablePositions size == 9
   )
+  
+  isFull := method(
+    availablePositions isEmpty
+  )
 )
