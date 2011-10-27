@@ -1,3 +1,4 @@
+doRelativeFile("tic-tac-toe/core-additions.io")
 doRelativeFile("tic-tac-toe/board.io")
 doRelativeFile("tic-tac-toe/board-analyzer.io")
 doRelativeFile("tic-tac-toe/computer-player.io")
