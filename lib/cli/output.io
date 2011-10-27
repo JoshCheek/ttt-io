@@ -12,9 +12,8 @@ Cli Output := Object clone do(
   )
 
   askForMoveOn := method(board, turn,
-    player := board playerNumberToMarker(turn)
     stream write(board humanReadable)
-    stream write("Where would you like to move, " .. (player asString) .. "? ")
+    stream write("Where would you like to move (1-9)? ")
     self
   )
 
@@ -29,7 +28,7 @@ Cli Output := Object clone do(
   )
   
   goFirstOrSecond := method(
-    stream write("Do you want to go first or second? ")
+    stream write("Do you want to go first or second (1 or 2)? ")
   )
   
   alertInvalid := method(
