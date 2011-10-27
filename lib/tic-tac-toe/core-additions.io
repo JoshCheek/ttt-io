@@ -3,6 +3,6 @@
 
 Sequence asList := method(
   toReturn := list
-  foreach(x, toReturn append(x asCharacter))
+  foreach(element, toReturn append(element asCharacter))
   toReturn
 )
