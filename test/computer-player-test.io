@@ -11,7 +11,7 @@ describe("ComputerPlayer",
     game := TestHelper gameFromString("120000000")
     player := ComputerPlayer withGame(game)
     player turn will == 1
-    player board will == game board
+    player _board will == game board
   )
   
   # takes immediate wins
@@ -68,18 +68,34 @@ describe("ComputerPlayer",
     ComputerPlayer getMove(game) will == 7
   )
   
-
-  # context 'Finds best moves for likely game states' do
-  #   moves_for [
-  #     ['000000000', 1, ['100000000', '001000000', '000000100', '000000001'] , "makes best 1st move"
-  #     ['120000000', 1, ['120000100', '120010000', '120100000']              , "makes move that will guarantee win in future"
-  #     ['100000002', 1, ['101000002', '100000102']                           , "makes move that will guarantee win in future"
-  #     ['100000020', 1, ['100000120', '101000020', '100010020']              , "makes move that will guarantee win in future"
-  #     ['102000000', 1, ['102100000', '102000100', '102000001']              , "makes move that will guarantee win in future"
-  #     ['102100200', 1, ['102110200']                                        , "makes move that will guarantee win next turn"
-  #     ['100020000', 1, ['110020000', '100120000']                           , "makes move with highest probability of win in future"
-  #     ['100000000', 2, ['100020000']                                        , "makes move with lowest probability of losing in future"
-  #   ]
-  # end
-  #   
+  # 'Finds best moves for likely game states'
+  it("makes best 1st move",
+    game := TestHelper gameFromString("000000000")
+    move := ComputerPlayer getMove(game)
+    list(1, 3, 7, 9) contains(move) will == true
+  )
+  
+  it("makes move that will guarantee win in future",
+    game := TestHelper gameFromString("120000000")
+    move := ComputerPlayer getMove(game)
+    list(4, 5, 7) contains(move) will == true
+  )
+  
+  it("makes move that will guarantee win in future",
+    game := TestHelper gameFromString("100000002")
+    move := ComputerPlayer getMove(game)
+    list(3, 5, 7) contains(move) will == true
+  )
+  
+  it("makes move that will guarantee win in future",
+    game := TestHelper gameFromString("100000020")
+    move := ComputerPlayer getMove(game)
+    list(3, 5, 7) contains(move) will == true
+  )
+  
+  it("makes move that will guarantee win in future",
+    game := TestHelper gameFromString("102000000")
+    move := ComputerPlayer getMove(game)
+    list(4, 7, 9) contains(move) will == true
+  )  
 )
