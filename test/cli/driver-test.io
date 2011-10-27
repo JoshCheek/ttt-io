@@ -12,7 +12,7 @@ describe("Cli Driver",
     driver board will == board
   )
   
-  it("prompts alternating players for every move until the game is over",
+  it("prompts alternating players for every move until the game is over, then notifies results",
     output  := MockOutput clone
     player1 := MockPlayer withMoves(list(1, 4, 7))
     player2 := MockPlayer withMoves(list(2, 5))
@@ -22,5 +22,9 @@ describe("Cli Driver",
     driver currentPlayer will == player2
     driver takeTurn
     driver currentPlayer will == player1
-  )
+    driver drive
+    board := driver game board
+    output numberOfTimesWasAskedToShowResults will == 1
+    output wasAskedToShowResultsWith(board asString, 1)
+  )  
 )

@@ -1,9 +1,10 @@
 MockOutput := Object clone do(
   init := method(
-    self numberOfTimesWasAskedForMove := 0
-    self askedToShowResults           := false
-    self boardToShow                  := nil
-    self winnerToShow                 := nil
+    self numberOfTimesWasAskedForMove       := 0
+    self numberOfTimesWasAskedToShowResults := 0
+    self askedToShowResults                 := false
+    self boardToShow                        := nil
+    self winnerToShow                       := nil
   )
   
   askForMoveOn := method(board, turn,
@@ -11,13 +12,15 @@ MockOutput := Object clone do(
   )
   
   showResults := method(board, winner,
-    askedToShowResults  = true
-    boardToShow         = board
-    winnerToShow        = winner
+    numberOfTimesWasAskedToShowResults  = numberOfTimesWasAskedToShowResults + 1
+    askedToShowResults                  = true
+    boardToShow                         = board
+    winnerToShow                        = winner
   )
   
   wasAskedToShowResultsWith := method(boardString, winnerNumber,
     (boardString == boardToShow asString) and (winnerNumber == winnerToShow)
   )
   
+  wasNotAskedToShowResults := method(numberOfTimesWasAskedToShowResults == 0)  
 )

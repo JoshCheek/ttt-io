@@ -25,10 +25,8 @@ Cli Driver := Object clone do(
   )
   
   drive := method(
-    while(game isOver not,
-      takeTurn
-      notifyResults
-    )
+    while(game isOver not, takeTurn)
+    notifyResults
     self
   )
   
