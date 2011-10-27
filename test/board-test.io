@@ -45,4 +45,12 @@ describe("Board",
                                 "   | X | O \n" ..
                                 "   |   |   \n")
   )
+  
+  it("supports undoing",
+    board := Board forString("000000000")
+    board mark(9, 1) mark(8, 2)
+    board asString will == "000000021"
+    board undo asString will == "000000001"
+    board undo asString will == "000000000"
+  )
 )

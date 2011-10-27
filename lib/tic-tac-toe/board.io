@@ -2,13 +2,25 @@ Board := Object clone do(
 
   init := method(
     self _primative := nil
+    self undos      := list()
     withString("000000000")
   )
     
   asString := method(_primative join)
   
-  mark := method(position, playerNumber, 
-    _primative atPut(position-1, markerFor(playerNumber))
+  mark := method(position, playerNumber,
+    position := toPrivateIndex(position)
+    _undo := list(position, _primative at(position))
+    undos append(_undo)
+    _primative atPut(position, markerFor(playerNumber))
+    self
+  )
+  
+  undo := method(
+    _undo := undos pop
+    position := _undo at(0)
+    marker   := _undo at(1)
+    _primative atPut(position, marker)
     self
   )
   
