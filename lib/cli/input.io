@@ -18,4 +18,10 @@ Cli Input := Object clone do(
   )
   
   getMove := method(stream readLine asNumber)
+  
+  goFirstOrSecond := method(
+    result := stream readLine asNumber
+    if(result == 1 or result == 2, return result)
+    goFirstOrSecond
+  )
 )

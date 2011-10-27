@@ -2,6 +2,7 @@ MockOutput := Object clone do(
   init := method(
     self numberOfTimesWasAskedForMove       := 0
     self numberOfTimesWasAskedToShowResults := 0
+    self promptedToGoFirstOrSecond          := false
     self askedToShowResults                 := false
     self boardToShow                        := nil
     self winnerToShow                       := nil
@@ -23,4 +24,9 @@ MockOutput := Object clone do(
   )
   
   wasNotAskedToShowResults := method(numberOfTimesWasAskedToShowResults == 0)  
+  
+  goFirstOrSecond := method(
+    promptedToGoFirstOrSecond = true
+    self
+  )  
 )

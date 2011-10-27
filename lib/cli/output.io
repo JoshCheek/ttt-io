@@ -27,4 +27,8 @@ Cli Output := Object clone do(
     )
     self
   )
+  
+  goFirstOrSecond := method(
+    stream write("Do you want to go first or second? ")
+  )
 )

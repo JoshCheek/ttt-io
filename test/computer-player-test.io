@@ -14,6 +14,14 @@ describe("ComputerPlayer",
     player _board will == game board
   )
   
+  it("can override its turn",
+    game := TestHelper gameFromString("000000000")
+    player := ComputerPlayer withGame(game)
+    player turn will == 1
+    player overrideTurn(2)
+    player turn will == 2
+  )
+  
   # takes immediate wins
   it("takes a win when it can win across top",
     game := TestHelper gameFromString("110200200")

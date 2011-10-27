@@ -2,17 +2,21 @@ hasSlot("Cli") ifFalse(Cli := Object clone)
 
 Cli Driver := Object clone do(
   init := method(
-    self board        := Board clone
-    self game         := TicTacToe forBoard(board)
-    self input        := Cli Input clone
-    self output       := Cli Output clone
-    self player1      := Cli HumanPlayer clone
-    self player2      := Cli HumanPlayer clone
+    self board            := Board clone
+    self game             := TicTacToe forBoard(board)
+    self input            := Cli Input clone
+    self output           := Cli Output clone
+    self playerOverride   := false
+    self player1          := nil
+    self player2          := nil
   )
   
-  withPlayer1 := method(_player1, player1 = _player1; self)
-  
-  withPlayer2 := method(_player2, player2 = _player2; self)
+  withPlayers := method(_player1, _player2,
+    playerOverride = true
+    player1 = _player1
+    player2 = _player2
+    self
+  )
   
   withInput  := method(_input,  input = _input; self)
   
@@ -25,8 +29,17 @@ Cli Driver := Object clone do(
   )
   
   drive := method(
+    if(playerOverride not, promptAndSetPlayers)
     while(game isOver not, takeTurn)
     notifyResults
+    self
+  )
+  
+  promptAndSetPlayers := method(
+    output goFirstOrSecond
+    human   := input goFirstOrSecond
+    player1  = if(human == 1, Cli HumanPlayer clone, ComputerPlayer withGame(game))
+    player2  = if(human == 2, Cli HumanPlayer clone, ComputerPlayer withGame(game) overrideTurn(2))
     self
   )
   

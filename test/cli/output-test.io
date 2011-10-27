@@ -54,5 +54,14 @@ describe("Cli Output",
     ))
     board wasAskedForHumanReadable will == true
   )
+  
+  it("goFirstOrSecond prompts user",
+    lines := TestHelper linesFromOutput(block(file,
+      output := Cli Output withStream(file)
+      output goFirstOrSecond
+    ))
+    lines select(containsSeq("first")) isEmpty will == false
+    lines select(containsSeq("second")) isEmpty will == false
+  )  
 )
 

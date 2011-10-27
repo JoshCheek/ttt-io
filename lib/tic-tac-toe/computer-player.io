@@ -13,11 +13,13 @@ ComputerPlayer := Object clone do(
   
   withGame := method(game,
     player := ComputerPlayer clone
-    player _game := game
+    player _game  := game
     player _board := game board
-    player turn  := game turn
+    player turn   := game turn
     player
   )
+  
+  overrideTurn := method(newTurn, turn = newTurn; self)
   
   getMove := method(game,
     ComputerPlayer withGame(game) getMove
