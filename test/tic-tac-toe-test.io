@@ -71,4 +71,10 @@ describe("TicTacToe",
     ticTacToe         := TicTacToe clone withBoardAnalyzer(mockBoardAnalyzer)
     ticTacToe isOver will == false
   )
+  
+  it("sets sets turn when withBoard is called",
+    board := Board forString("100000000")
+    ticTacToe := TicTacToe forBoard(board)
+    ticTacToe turn will == 2
+  )
 )

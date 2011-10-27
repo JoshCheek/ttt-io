@@ -50,4 +50,6 @@ MockBoard := Object clone do(
   playerNumberToMarker := method(
     "X"
   )
+  
+  availablePositions := method(list(1)) # may need to be overridden to be smarter depending on tests later
 )

@@ -37,6 +37,7 @@ TicTacToe := Object clone do(
   
   withBoard := method(newBoard,
     _board = newBoard
+    turn = if(newBoard availablePositions size isOdd, 1, 2)
     self
   )
   
