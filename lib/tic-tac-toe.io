@@ -1,5 +1,6 @@
 doRelativeFile("tic-tac-toe/board.io")
 doRelativeFile("tic-tac-toe/board-analyzer.io")
+doRelativeFile("tic-tac-toe/computer-player.io")
 doRelativeFile("cli/driver.io")
 doRelativeFile("cli/input.io")
 doRelativeFile("cli/output.io")
@@ -20,9 +21,11 @@ TicTacToe := Object clone do(
     
   move := method(position,
     board mark(position, turn)
-    self turn = if(turn == 1, 2, 1)
+    turn = nextTurn(turn)
     self
   )
+  
+  nextTurn := method(turn, if(turn == 1, 2, 1))
   
   board := method(
     _board ifNil(_board = Board clone)

@@ -1,3 +1,5 @@
+doRelativeFile("../test-helper.io")
+
 describe("HumanPlayer test",
   
   it("gets the human player's move",
